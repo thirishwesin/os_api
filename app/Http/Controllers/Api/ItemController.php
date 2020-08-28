@@ -9,6 +9,11 @@ use App\Http\Resources\ItemResource;
 
 class ItemController extends Controller
 {
+
+    public function __construct($value='')
+    {
+        $this->middleware('auth:api')->except('index','filter');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -99,4 +104,18 @@ class ItemController extends Controller
     {
         //
     }
+
+    public function filter($sid,$bid)
+{
+    $items =array();
+    if ($sid && $bid) {
+        $items = Item::where('subcategory_id',$sid)
+        ->where('brand_id',$bid)->get();
+
+    }else{
+        $items = Item::where('subcategory_id',$sid)
+        ->or_where('brand_id',$bid)->get();
+    }
+    return $items;
+}
 }

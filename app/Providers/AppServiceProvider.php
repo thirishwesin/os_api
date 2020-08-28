@@ -4,8 +4,13 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Facades\Gate;
+
+
 class AppServiceProvider extends ServiceProvider
 {
+
+     
     /**
      * Register any application services.
      *
@@ -24,5 +29,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         JsonResource::withoutWrapping();
+
+        
     }
 }

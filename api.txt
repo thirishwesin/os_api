@@ -1,0 +1,7 @@
+passport config
+
+
+form->method post
+-user model
+-Authserviceprovider
+-config/auth.php
