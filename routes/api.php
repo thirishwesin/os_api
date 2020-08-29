@@ -24,6 +24,7 @@ Route::apiresource('subcategories','Api\SubcategoryController');
 Route::apiresource('items','Api\ItemController');
 Route::apiresource('users','Api\UserController');
 Route::get('filter_item/{sid}/{bid}','Api\ItemController@filter')->name('filter_item');
+Route::get('filter_item','Api\ItemController@filterQuery')->name('filter_item');
 
 
 
